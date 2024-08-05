@@ -3,7 +3,7 @@ import { Form, Container, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import NavigationBar from './NavigationBar';
 
-const CustomerForm = () => {
+const AddCustomer = () => {
   const [customerData, setCustomerData] = useState({ name: '', phone: '', email: '' });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -82,4 +82,4 @@ const CustomerForm = () => {
   );
 };
 
-export default CustomerForm;
+export default AddCustomer;

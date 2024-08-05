@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
 
 function CustomerDetails({customer}){
@@ -12,6 +13,10 @@ function CustomerDetails({customer}){
                     <li>Email: {customer.email}</li>
                     <li>Phone: {customer.phone}</li>
                 </ul>
+                <Link to={`/edit-customer/${customer.customer_id}`}>
+                    <button>Update</button>
+                
+                </Link>
             </div>
         </div>
     )
