@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import NavigationBar from "./NavigationBar";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const ProductList = () => {
+const ProductList = ({onProductSelect}) => {
   const [products, setProducts] = useState([]); 
   const navigate = useNavigate(); 
 
@@ -54,7 +54,11 @@ const ProductList = () => {
         {products.map(product => (
           <li key={product.product_id}>
             <p>{product.name}: ${product.price}</p>
-            <button onClick={() => navigate(`/edit-product/${product.product_id}`)}>Edit</button>
+            <Link to={`/edit-product/${product.product_id}`}
+                  onClick={() => onProductSelect(product)}
+            >
+                <button type="button">Update</button>
+            </Link>
             <button onClick={() => deleteProduct(product.product_id)}>Delete</button>
           </li>
         ))}
