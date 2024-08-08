@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function NotFound(){
+function NotFound() {
   return (
     <div className="not-found">
       <h2>404 - Not found</h2>
@@ -10,7 +10,7 @@ function NotFound(){
         You can always go back to the <Link to="/">homepage</Link>
       </p>
     </div>
-  )
+  );
 }
 
 export default NotFound;

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../NavigationBar";
 import axios from "axios";
+import "./Customers.css";
 
 function CustomerDetails({ customer }) {
   const deleteCustomer = async customerID => {
@@ -13,7 +14,7 @@ function CustomerDetails({ customer }) {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <NavigationBar />
       <div className="customer-details-container">
         <h1>{customer.name}</h1>
@@ -22,14 +23,17 @@ function CustomerDetails({ customer }) {
           <li>Email: {customer.email}</li>
           <li>Phone: {customer.phone}</li>
         </ul>
+        <div className="buttons-container">
         <Link to={`/edit-customer/${customer.customer_id}`}>
-          <button>Update</button>
+          <button className="customer-button">Update</button>
         </Link>
         <Link to={`/customers`}>
-        <button onClick={() => deleteCustomer(customer.customer_id)}>
-          Delete
-        </button>
+          <button className="customer-button" onClick={() => deleteCustomer(customer.customer_id)}>
+            Delete
+          </button>
         </Link>
+
+        </div>
       </div>
     </div>
   );

@@ -1,32 +1,36 @@
-import React, { useState } from 'react';
-import { Form, Container, Alert } from 'react-bootstrap';
-import axios from 'axios';
-import NavigationBar from './NavigationBar';
+import React, { useState } from "react";
+import { Form, Container, Alert } from "react-bootstrap";
+import axios from "axios";
+import NavigationBar from "../NavigationBar";
+import "./Products.css";
 
 const AddProduct = () => {
-  const [productData, setProductData] = useState({ name: "", price:""});
+  const [productData, setProductData] = useState({ name: "", price: "" });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
     setProductData({ ...productData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
-    
+
     try {
-        const response = await axios.post('http://127.0.0.1:5001/products', productData);
-        setIsLoading(false);
-        alert('Product created successfully!');
-      } catch (error) {
-        setIsLoading(false);
-        setError(error.message);
-      }
+      const response = await axios.post(
+        "http://127.0.0.1:5001/products",
+        productData
+      );
+      setIsLoading(false);
+      alert("Product created successfully!");
+    } catch (error) {
+      setIsLoading(false);
+      setError(error.message);
+    }
   };
 
   return (
@@ -36,9 +40,7 @@ const AddProduct = () => {
         {isLoading && <Alert variant="info">Creating new product</Alert>}
 
         {error && (
-          <Alert variant="danger">
-            Error creating new product: {error}
-          </Alert>
+          <Alert variant="danger">Error creating new product: {error}</Alert>
         )}
 
         <Form onSubmit={handleSubmit}>
@@ -65,8 +67,9 @@ const AddProduct = () => {
 
             {errors.price && <div style={{ color: "red" }}>{errors.price}</div>}
           </Form.Group>
-
-          <button type='submit'>Submit</button>
+          <div className="form-button">
+          <button className="product-button" type="submit">Submit</button>
+          </div>
         </Form>
       </Container>
     </>

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Form, Container, Alert } from "react-bootstrap";
 import axios from "axios";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../NavigationBar";
+import "./Customers.css";
 
 const EditCustomer = ({ customer }) => {
   const [customerData, setCustomerData] = useState({
@@ -53,7 +54,7 @@ const EditCustomer = ({ customer }) => {
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
-              name="name"            
+              name="name"
               value={customerData.name}
               onChange={handleChange}
             ></Form.Control>
@@ -65,7 +66,7 @@ const EditCustomer = ({ customer }) => {
             <Form.Label>Phone</Form.Label>
             <Form.Control
               type="text"
-              name="phone"      
+              name="phone"
               value={customerData.phone}
               onChange={handleChange}
             ></Form.Control>
@@ -77,12 +78,15 @@ const EditCustomer = ({ customer }) => {
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="text"
-              name="email"          
+              name="email"
               value={customerData.email}
               onChange={handleChange}
             ></Form.Control>
           </Form.Group>
-          <button type="submit">Submit</button>
+          <div className="form-button">
+          <button className="customer-button" type="submit">Submit</button>
+
+          </div>
         </Form>
       </Container>
     </>

@@ -1,32 +1,40 @@
-import React, { useState } from 'react';
-import { Form, Container, Alert } from 'react-bootstrap';
-import axios from 'axios';
-import NavigationBar from './NavigationBar';
+import React, { useState } from "react";
+import { Form, Container, Alert } from "react-bootstrap";
+import axios from "axios";
+import NavigationBar from "../NavigationBar";
+import "./Customers.css";
 
 const AddCustomer = () => {
-  const [customerData, setCustomerData] = useState({ name: '', phone: '', email: '' });
+  const [customerData, setCustomerData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
     setCustomerData({ ...customerData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
-    
+
     try {
-        const response = await axios.post('http://127.0.0.1:5001/customers', customerData);
-        setIsLoading(false);
-        alert('Customer data submitted successfully!');
-      } catch (error) {
-        setIsLoading(false);
-        setError(error.message);
-      }
+      const response = await axios.post(
+        "http://127.0.0.1:5001/customers",
+        customerData
+      );
+      setIsLoading(false);
+      alert("Customer data submitted successfully!");
+    } catch (error) {
+      setIsLoading(false);
+      setError(error.message);
+    }
   };
 
   return (
@@ -75,7 +83,9 @@ const AddCustomer = () => {
               onChange={handleChange}
             ></Form.Control>
           </Form.Group>
-          <button type='submit'>Submit</button>
+          <div className="form-button">
+          <button className="customer-button" type="submit">Submit</button>
+          </div>
         </Form>
       </Container>
     </>

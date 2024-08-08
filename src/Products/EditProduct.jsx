@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Form, Container, Alert } from "react-bootstrap";
 import axios from "axios";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../NavigationBar";
+import "./Products.css";
 
 const EditProduct = ({ product }) => {
   const [productData, setProductData] = useState({
@@ -39,12 +40,12 @@ const EditProduct = ({ product }) => {
     <>
       <NavigationBar />
       <Container>
-        {isLoading && <Alert variant="info">Updating product information</Alert>}
+        {isLoading && (
+          <Alert variant="info">Updating product information</Alert>
+        )}
 
         {error && (
-          <Alert variant="danger">
-            Error submitting product data: {error}
-          </Alert>
+          <Alert variant="danger">Error submitting product data: {error}</Alert>
         )}
 
         <Form onSubmit={handleSubmit}>
@@ -52,7 +53,7 @@ const EditProduct = ({ product }) => {
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
-              name="name"            
+              name="name"
               value={productData.name}
               onChange={handleChange}
             ></Form.Control>
@@ -64,14 +65,16 @@ const EditProduct = ({ product }) => {
             <Form.Label>Price</Form.Label>
             <Form.Control
               type="number"
-              name="price"      
+              name="price"
               value={productData.price}
               onChange={handleChange}
             ></Form.Control>
 
             {errors.price && <div style={{ color: "red" }}>{errors.price}</div>}
           </Form.Group>
-          <button type="submit">Submit</button>
+          <div className="form-button">
+          <button className="product-button" type="submit">Submit</button>
+          </div>
         </Form>
       </Container>
     </>

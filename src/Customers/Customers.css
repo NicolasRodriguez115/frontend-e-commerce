@@ -1,0 +1,46 @@
+.customer-details-container{
+    background-color: rgb(84, 84, 84);
+    border-radius: 15px;
+    display: flex;
+    width: 35vw;
+    margin-top: 60px;
+    padding: 25px;
+}
+
+
+
+.customer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-left: 45px;
+}
+
+.customer-button{
+    margin-left: 20px;
+    width: 110px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #facb03;
+}
+
+.customer-button:hover{
+    cursor: pointer;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-button{
+    margin-top: 20px;
+}
