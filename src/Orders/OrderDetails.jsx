@@ -1,7 +1,7 @@
 import axios from "axios"
 import NavigationBar from "../NavigationBar"
 import { Link } from "react-router-dom"
-
+import "./Orders.css"
 const OrderDetails = ({order}) => {
 
     const deleteOrder = async orderID => {
@@ -22,11 +22,11 @@ const OrderDetails = ({order}) => {
         }
     }
     return (
-        <div>
+        <>
             <NavigationBar/>
-            <div className="order-details-container">
+            <div className="order-list-container">
                 <h1>Order ID: {order.order_id}</h1>
-                <ul>
+                <ul className="order-list">
                     <li>Customer ID: {order.customer_id}</li>
                     <li>Date: {order.date}</li>                    
                     <li>
@@ -46,12 +46,12 @@ const OrderDetails = ({order}) => {
                         </ul>
                     </li>
                     <li>Status: {statusMessage(order.status)} </li>
-                </ul>    
                 <Link to={`/orders`}>
-                    <button onClick={() => deleteOrder(order.order_id)}>Delete</button>       
+                    <button className="order-button" onClick={() => deleteOrder(order.order_id)}>Delete</button>       
                 </Link>
+                </ul>    
             </div>
-        </div>
+        </>
     )
 }
 

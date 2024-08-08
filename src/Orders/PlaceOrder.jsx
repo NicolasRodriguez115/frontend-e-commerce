@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import NavigationBar from "../NavigationBar";
-
+import "./Orders.css"
 const AddOrder = () => {
   const [orderData, setOrderData] = useState({
     customer_id: "",
@@ -100,10 +100,12 @@ const AddOrder = () => {
                 value={product}
                 onChange={e => handleChange(e, index)}
               ></Form.Control>
+              <button className="new-product-button" onClick={handleAddProduct}>Add Another Product</button>
             </Form.Group>
           ))}
-          <button onClick={handleAddProduct}>Add Another Product</button>
-          <button type="submit">Submit</button>
+          <div className="form-button">
+          <button className="order-button" type="submit">Submit</button>
+          </div>
         </Form>
       </Container>
     </>

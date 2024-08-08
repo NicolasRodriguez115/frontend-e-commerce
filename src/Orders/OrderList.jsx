@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import NavigationBar from "../NavigationBar"
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import "./Orders.css"
 const OrderList = ({onOrderSelect}) => {
     const [orders, setOrders] = useState([]);
     
@@ -20,20 +20,20 @@ const OrderList = ({onOrderSelect}) => {
     }, []);
 
     return (
-        <div className="order-list">
+        <>
             <NavigationBar/>
-            <h1>Orders</h1>
-            <ul>
+        <div className="order-list-container">
+            <h1 className="orders">Orders</h1>
+            <ul className="order-list">
                 {orders.map(order => (
-                    <li key={order.order_id}>
-                        <p>
-                            Order ID: {order.order_id}
-                        </p>
+                    <li className="order" key={order.order_id}>
+                        Order ID: {order.order_id}
+                        
                         <Link
                             to={`/order/${order.order_id}`}
                             onClick={() => onOrderSelect(order)}
                         >
-                            <button type="button">
+                            <button className="order-button" type="button">
                                 Details
                             </button>
                         </Link>
@@ -41,6 +41,7 @@ const OrderList = ({onOrderSelect}) => {
                 ))}
             </ul>
         </div>
+        </>
     )
 }
 

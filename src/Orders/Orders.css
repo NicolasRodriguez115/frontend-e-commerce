@@ -1,0 +1,40 @@
+.order-list-container{
+    background-color: rgb(84, 84, 84);
+    border-radius: 15px;
+    display: flex;
+    width: 35vw;
+    margin-top: 60px;
+    padding: 25px;
+}
+
+
+
+.order-list{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-left: 45px;   
+}
+
+.order > a{
+    margin-left: 20px;
+}
+
+.order-button{
+    width: 110px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #facb03;
+}
+
+.form-button{
+    margin-top: 20px;
+}
+
+.new-product-button{
+    margin-top: 20px;
+    width: 150px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #facb03;
+}
